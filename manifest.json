@@ -1,12 +1,13 @@
 {
-    "name": "The Byte",
-    "short_name": "The Byte",
-    "start_url": "index.html",
-    "display": "standalone",
-    "background_color": "#fdfdfd",
-    "theme_color": "#db4938",
-    "orientation": "portrait-primary",
-    "icons": [
-      
-    ]
-  }
+    "name":"Citizen",
+    "short_name":"citizen",
+    "start_url":"/Enter.html",
+    "display":"standalone",
+    "background_color":"rgb(242, 245, 247)",
+    "theme_color":"rgb(93, 97, 196)",
+    "orientation":"portrait_primary",
+    "icons":[
+        {
+            "src":"/assets/logo.png"
+        }]
+}
