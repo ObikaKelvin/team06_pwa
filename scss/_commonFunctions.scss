@@ -1,0 +1,17 @@
+@import 'colors';
+@import 'variables';
+
+@mixin flexCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin addShhadow($shadowColor) {
+    box-shadow: 5px 5px $shadowColor;
+}
+
+@mixin mobileConfiguration {
+    @media only screen and (max-width: 990px) {
+    }
+}
