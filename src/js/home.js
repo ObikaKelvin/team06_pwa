@@ -1,0 +1,1 @@
+import { getReports } from "../index";
