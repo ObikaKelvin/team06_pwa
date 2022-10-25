@@ -1,15 +1,29 @@
 {
   "name": "team06_pwa",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "complie:sass": "node-sass res/sass/app.scss public/css/app.min.css --w"
+    "complie:sass": "node-sass res/sass/app.scss public/css/app.min.css --w",
+    "build": "webpack"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "firebase": "^9.12.1",
     "node-sass": "^7.0.3"
-  }
+  },
+  "devDependencies": {
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ObikaKelvin/team06_pwa.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ObikaKelvin/team06_pwa/issues"
+  },
+  "homepage": "https://github.com/ObikaKelvin/team06_pwa#readme",
+  "description": ""
 }
