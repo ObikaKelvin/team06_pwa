@@ -6,9 +6,9 @@
     <title>Sign Up</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
-    <link rel="stylesheet" href="/scss/index.css">
+    <link rel="stylesheet" href="/css/signup/signup.css">
     <link href='https://fonts.googleapis.com/css?family=Space Grotesk' rel='stylesheet'>
-    <!-- <script src="/js/createAccount.js" defer></script> -->
+    <script src="/js/createAccount.js" defer></script>
     <link rel=" manifest" href="/manifest.json"> 
 
 </head>
@@ -16,8 +16,11 @@
     <div class="container">
         <div class="signup">
             <div class="logo">
-                <img class="mainLogo" src="/assets/illustrations.jpg" alt="">
-                <h1 class="signup-header">Create your free account</h1>
+                <img  src="/assets/logo.svg" alt="">
+            </div>
+            <div class="logo">
+                <h3 class="signup-header">Welcome to</h3>
+                <h1 class="signup-header">The Citizen</h1>
                 <p class="signup-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt consectetur</p>
             </div>
             <form class="signup-form" action="#">
@@ -46,8 +49,7 @@
                     </div>
                 </div>
                 <div class="signup-form__submit">
-                    <button id='submitAccount' type="submit">Create your account</button>
-                    <!-- <a href="success.html" id='submitAccount' class="signup-action">Create your account</a> -->
+                    <a href="success.html" id='submitAccount' class="signup-action">Create your account</a>
                 </div>
                 <div class="message">
                     <div id="emptyField" style="display:none"> No Field should be empty</div>
@@ -55,7 +57,7 @@
                 </div>
             </form>
         </div>
- 
+
         <div class="signup-page-image">
             <span class="Transform-your-neighbourhood-with-the-power-of-the-community">
                 Transform your neighbourhood with the power of 
@@ -65,63 +67,4 @@
         </div>
     </div>
 </body>
-
-<script type="module">
-    import { initializeApp} from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
-    import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-database.js";
-    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyAdZBkcMY0QDKR6vkdC0kSDr5j8ekVH4_k",
-    authDomain: "the-citizen-d6e2b.firebaseapp.com",
-    projectId: "the-citizen-d6e2b",
-    storageBucket: "the-citizen-d6e2b.appspot.com",
-    messagingSenderId: "354032824353",
-    appId: "1:354032824353:web:308a097b92191146e9f360",
-    measurementId: "G-PLD04JLWCB"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const database = getDatabase(app);
-  const auth = getAuth();
-
-  submitAccount.addEventListener('click',(e) => {
-    console.log("button clicked");
-  var email = document.getElementById('email').value;
-  var password = document.getElementById('password').value;
-  var userName = document.getElementById('username').value;
-  var fullName = document.getElementById('fullName').value;
-  var photoUrl = "abc.com";
-
-  createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-     // Signed in 
-      const user = userCredential.user;
-        console.log('user created0');
-        setDoc(doc(db, "users"), {
-                "fullName": fullName,
-                "email": email,
-                "password": password,
-                "userName": userName
-            });
-
-      console.log('user created1');
-      alert('user created!');
-      // ...
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-
-      alert(errorMessage);
-    // ..
-    });
-
-});
-</script>
-
 </html>
