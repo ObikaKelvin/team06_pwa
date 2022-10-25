@@ -17,35 +17,25 @@ const firebaseConfig = {
 initializeApp(firebaseConfig);
 
 const db = getFirestore()
-getLatestReports();
+getReports();
 
 
-function getCollectionFromName(name){
+export function getCollectionFromName(name){
   return collection(db, name);
 }
 
-
-function getLatestReports(){
+export function getReports(){
   const reportDb = getCollectionFromName('reports');
   getDocs(reportDb)
     .then(snapshot => {
+      console.log(snapshot.docs);
       let latestReports = []
       snapshot.docs.forEach(doc => {
         var requireFile = require("./js/classes");
         let report = new requireFile.Report(doc.data().address, doc.data().createdAt, doc.data().description, doc.data().images, doc.data().location, doc.data().postedBy, doc.data().status, doc.data().title, doc.data().updatedAt, doc.data().upvotes)
+        latestReports.push(report);
       })
       console.log(latestReports);
-    })
-    .catch(err => {
-      console.log(err.message)
-    })  
-}
-
-function getNearestReports(){
-  const reportDb = getCollectionFromName('reports');
-  getDocs(reportDb)
-    .then(snapshot => {
-      // fetch nearest report here;
     })
     .catch(err => {
       console.log(err.message)
