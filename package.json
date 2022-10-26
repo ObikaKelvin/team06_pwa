@@ -11,7 +11,10 @@
   "license": "ISC",
   "dependencies": {
     "firebase": "^9.12.1",
+<<<<<<< HEAD
     "geofirestore": "^5.2.0",
+=======
+>>>>>>> dba2a161e14cd3c42a10b41a3415adfe6077f876
     "node-sass": "^7.0.3"
   },
   "devDependencies": {
