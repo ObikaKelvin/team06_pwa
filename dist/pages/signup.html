@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/css/signup/signup.css">
+    <link href='https://fonts.googleapis.com/css?family=Space Grotesk' rel='stylesheet'>
+    <script src="/js/createAccount.js" defer></script>
+    <link rel=" manifest" href="/manifest.json"> 
+    <script src="/src/js/createAccount.js"></script>
+    
+
+</head>
+<body class="signup-body">
+    <div class="container">
+        <div class="signup">
+            <div class="logo">
+                <img class="mainLogo" src="/assets/illustrations.jpg" alt="">
+                <h1 class="signup-header">Create your free account</h1>
+                <p class="signup-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt consectetur</p>
+            </div>
+            <form class="signup-form" action="#">
+                <div class="signup-input">
+                    <div class="signup-input__sub-field">
+                        <label for="fullName">Full name</label>
+                        <input type="text" name="fullName" id="fullName" placeholder="What's your full name?" required>
+                    </div>
+                </div>
+                <div class="signup-input">
+                    <div class="signup-input__sub-field">
+                        <label for="email">Email Address</label>
+                        <input type="text" name="email" id="email" placeholder="name@example.com" required>
+                    </div>
+                </div>
+                <div class="signup-input">
+                    <div class="signup-input__sub-field">
+                        <label for="username">Username</label>
+                        <input type="text" name="username" id="username" placeholder="Create a unique username" required>
+                    </div>
+                </div>
+                <div class="signup-input">
+                    <div class="signup-input__sub-field">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password" placeholder="Password" required>
+                    </div>
+                </div>
+                <div class="signup-form__submit">
+<<<<<<< Updated upstream:pages/signup.html
+                    <a href="success.html" id='submitAccount' class="signup-action">Create your account</a>
+=======
+                    <button id='submitAccount' type="submit onclick="location.href='/dist/pages/success.html'">Create your account</button>
+                    <!-- <a href="success.html" id='submitAccount' class="signup-action">Create your account</a> -->
+>>>>>>> Stashed changes:dist/pages/signup.html
+                </div>
+                <div class="message">
+                    <div id="emptyField" style="display:none"> No Field should be empty</div>
+                    <div id="danger" style="display:none">username already exists</div>
+                </div>
+            </form>
+        </div>
+ 
+        <div class="signup-page-image">
+            <span class="Transform-your-neighbourhood-with-the-power-of-the-community">
+                Transform your neighbourhood with the power of 
+              the community
+              </span>
+            <img src="/assets/signup-theme.jpg" alt="">
+        </div>
+    </div>
+</body>
+</html>
