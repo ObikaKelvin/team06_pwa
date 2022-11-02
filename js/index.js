@@ -41,77 +41,71 @@ async function addNewUser() {
 
 /*---------- Get All Reports--------------- */
 //get categories
-export async function getCategories(collectionName,key,value) {
-   let collectionIdMap=new Map();
-   let documents=null;
-   let filter=false;
-   documents=getCollection(collectionName)
-   if(key!=null&&value!=null){
+export async function getCategories(collectionName, key, value) {
+  let collectionIdMap = new Map();
+  let documents = null;
+  let filter = false;
+  documents = getCollection(collectionName)
+  if (key != null && value != null) {
     documents = query(documents, where(key, "==", value));
-    filter=true;
-  
-   }
-   let collection=await getDocs(documents);
-   collection.forEach((doc) => {
-    collectionIdMap.set(doc.id,doc.data().name)
-   });
-   let reports = await getReportsIds(collectionIdMap,filter)
-      return reports;
+    filter = true;
+
+  }
+  let collection = await getDocs(documents);
+  collection.forEach((doc) => {
+    collectionIdMap.set(doc.id, doc.data().name)
+  });
+  let reports = await getReportsIds(collectionIdMap, filter)
+  return reports;
 }
 
 //get report id
-async function getReportsIds(collectionIdMap,filter)
-{
+async function getReportsIds(collectionIdMap, filter) {
   let documents = null;
-  documents=getCollection('report_category');
-  let reportFilter=false;
-  
-  if(filter===true){
-    reportFilter=true;
-    let Key=[]
-    for(let key of collectionIdMap.keys()){
+  documents = getCollection('report_category');
+  let reportFilter = false;
+
+  if (filter === true) {
+    reportFilter = true;
+    let Key = []
+    for (let key of collectionIdMap.keys()) {
       Key.push(key);
     }
-    documents= query(documents, where('category', 'in', Key));
+    documents = query(documents, where('category', 'in', Key));
   }
-  let collection=await getDocs(documents);
-  let reportIdMap=new Map(); 
+  let collection = await getDocs(documents);
+  let reportIdMap = new Map();
   collection.forEach((doc) => {
-   if(collectionIdMap.has(doc.data().category)){
-    reportIdMap.set(doc.data().report,collectionIdMap.get(doc.data().category))
-   }
+    if (collectionIdMap.has(doc.data().category)) {
+      reportIdMap.set(doc.data().report, collectionIdMap.get(doc.data().category))
+    }
   });
-  let reports = await getReports(reportIdMap,reportFilter)
-   return reports;
+  let reports = await getReports(reportIdMap, reportFilter)
+  return reports;
 }
 
 //get reports
-async function getReports(reportIdMap,reportFilter)
-{
+async function getReports(reportIdMap, reportFilter) {
   let documents = null;
-  documents=getCollection('reports');
-  if(reportFilter===true)
-  {
-    let Key=[]
-    for(let key of reportIdMap.keys()){
+  documents = getCollection('reports');
+  if (reportFilter === true) {
+    let Key = []
+    for (let key of reportIdMap.keys()) {
       Key.push(key.toString());
     }
-    documents= query(documents, where(documentId(), 'in', Key));
+    documents = query(documents, where(documentId(), 'in', Key));
   }
-  let collection=await getDocs(documents);
-   collection.forEach((doc)=>{
-   if(reportIdMap.has(doc.id))
-  {
-    console.log('category:'+ reportIdMap.get(doc.id))
-    let report = new Report(doc.data().address, doc.data().createdAt, doc.data().description, doc.data().images,
-    doc.data().postedBy, doc.data().status, doc.data().title, doc.data().updatedAt,
-    doc.data().upvotes, doc.data().geohash);
-    reportIdMap.set(doc.id,report)
-    console.log('after saving object'+reportIdMap.get(doc.id).address)
-  }
-   })
-   return reportIdMap;
-  }
+  let collection = await getDocs(documents);
+  collection.forEach((doc) => {
+    if (reportIdMap.has(doc.id)) {
+      let report = new Report(doc.data().address, doc.data().createdAt, doc.data().description, doc.data().images,
+        doc.data().postedBy, doc.data().status, doc.data().title, doc.data().updatedAt,
+        doc.data().upvotes, doc.data().geohash, reportIdMap.get(doc.id));
+      reportIdMap.set(doc.id, report)
+    }
+  })
+  return reportIdMap;
+}
 
 /*---------- Get Reports for Nearest Locations-----------*/
 
@@ -156,10 +150,10 @@ function getNearestReports() {
   //     .startAt(b[0])
   //     .endAt(b[1]);
 
-    promises.push(q.get());
+  promises.push(q.get());
 
 
-  }
+}
 
 
 
