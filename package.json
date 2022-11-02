@@ -10,12 +10,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "firebase": "^9.12.1",
-<<<<<<< HEAD
+    "firebase": "^9.13.0",
+    "geo-hash": "^0.0.2",
+    "geofire": "^6.0.0",
+    "geofire-common": "^6.0.0",
     "geofirestore": "^5.2.0",
-=======
->>>>>>> dba2a161e14cd3c42a10b41a3415adfe6077f876
-    "node-sass": "^7.0.3"
+    "node-sass": "^7.0.3",
+    "require": "^0.4.4"
   },
   "devDependencies": {
     "webpack": "^5.74.0",

@@ -1,7 +1,5 @@
 /* HEADER starts */
-header{
-<<<<<<< HEAD
-    position: fixed;
+header{    position: fixed;
     top: 0;
     z-index: 1;
     width: 100%;
@@ -1231,4 +1229,3 @@ footer
 }
 
 /* home page ends */
->>>>>>> dba2a161e14cd3c42a10b41a3415adfe6077f876
