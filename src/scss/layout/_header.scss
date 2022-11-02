@@ -1,0 +1,45 @@
+.nav {
+
+    margin-bottom: 5.6rem;
+    margin-top: 4rem;
+
+    @include respond(xl) {
+        margin-bottom: 8rem;
+        margin-top: 7.2rem;
+    }
+
+    &__list {
+        text-decoration: none;
+        list-style: none;
+        height: 100%;
+        display: flex;
+        align-items: center;
+
+        &--back {
+            @include respond(xl) {
+                width: 6.4rem;
+                height: 6.4rem;
+            }
+        }
+
+        &--item {
+            &:not(:last-child) {
+                @include respond(xl) {
+                    margin-right: 6.6rem;
+                }
+            }
+        }
+
+        &--link {
+            &:link,
+            &:visited,
+            &:active {
+                font-weight: 700;
+                font-size: 2rem;
+            }
+        }
+    }
+
+    
+    
+}
