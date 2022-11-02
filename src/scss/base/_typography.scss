@@ -1,0 +1,53 @@
+/// Typography
+///
+/// This Sass file contains our font faces and the styles for the different
+/// headings and text used across our application.
+.sans {
+    font-family: $space-grotesk;
+    line-height: 150%;
+
+    &-body {
+        font-size: 1.6em;
+    }
+
+    &-title {
+        font-size: 2.0em;
+        
+        @include respond(lg) {
+            font-size: 2.4em;
+        }
+    }
+}
+
+
+.serif {
+    font-family: $space-grotesk;
+    text-align: center;
+    color: map-get( $colors, primary );
+
+    &__h1 {
+        @extend .serif;
+        font-weight: 800;
+        font-size: 3.2em;
+        line-height: 140%;
+        text-align: center;
+
+        @include respond(xl) {
+            font-size: 4.8em;
+            text-align: left
+        }
+
+        &-italic {
+            @extend .serif__h1;
+            font-style: italic;
+            font-weight: 400;
+        }
+    }
+}
+
+a {
+    color: map-get( $colors, secondary );
+    font-family: $space-grotesk;
+    text-decoration: none;
+    font-weight: 500;
+}

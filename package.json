@@ -3,19 +3,20 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "complie:sass": "node-sass res/sass/app.scss public/css/app.min.css --w",
-    "build": "webpack"
+    "complie:sass": "node-sass src/scss/app.scss public/css/app.min.css --w",
+    "build": "webpack --config webpack.config.js --mode=production"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "css-loader": "^6.7.1",
+    "file-loader": "^6.2.0",
     "firebase": "^9.12.1",
-<<<<<<< HEAD
     "geofirestore": "^5.2.0",
-=======
->>>>>>> dba2a161e14cd3c42a10b41a3415adfe6077f876
-    "node-sass": "^7.0.3"
+    "mini-css-extract-plugin": "^2.6.1",
+    "node-sass": "^7.0.3",
+    "sass-loader": "^13.1.0"
   },
   "devDependencies": {
     "webpack": "^5.74.0",
