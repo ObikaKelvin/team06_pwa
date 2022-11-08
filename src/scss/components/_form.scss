@@ -31,6 +31,10 @@
             margin-bottom: 1.2rem;
         }
         
+        &--error {
+            color: map-get( $colors, error );
+        }
+
     }
 
     &__asterisk {
@@ -47,8 +51,35 @@
 
         &:focus {
             outline: none;
-            border: 0.2em solid map-get( $colors, successDark );
         }
+
+        &--error {
+            border: 0.2em solid map-get( $colors, error );
+        }
+
+        &--hollow {
+            padding: 1rem 0.5rem;
+            background-color: transparent;
+            font-size: 1.3rem;
+            outline: none;
+            border: none;
+            border-bottom: 1px solid map-get( $colors, surface );
+            color: map-get( $colors, surface );
+            width: 100%;
+        }
+
+        &--hollow::placeholder {
+            color: map-get( $colors, surface );
+            font-weight: 400;
+        }
+
+        &--icon {
+            position: absolute;
+            right: 0.5rem;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
     }
 
     &__signup {
@@ -59,9 +90,29 @@
         }
     }
 
+    &__footer {
+        position: relative;
+    }
+
     &__error {
         color: map-get( $colors, error );
         font-size: 1.4rem;
         margin-bottom: .5rem;
     }
+
+    &__alert {
+        background-color: map-get( $colors, error );
+        padding: 2rem;
+        margin-bottom: 2rem;
+        border-radius: 0.2rem;
+        display: none;
+
+        &--text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-align: center;
+            color: map-get( $colors, surface );
+        }
+    }
+    
 }

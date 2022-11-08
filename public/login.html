@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/app.min.css">
-    <script src="/js/login.js" defer></script>
+    <script src="./js/index.min.js" defer></script>
 </head>
 <body>
     <section class="signup">
@@ -28,20 +28,24 @@
                                 <h3 class="serif__h1">Welcome Back!</h3>
                             </div>
         
-                            <form class="form form__signup" action="#">
+                            <form class="form form__login" action="#">
+
+                                <div class="form__alert">
+                                    <p class="form__alert--text"></p>
+                                </div>
     
                                 <div class="form__group">
                                     <label for="email" class="form__label">Email address <span class="form__asterisk">*</span></label>
-                                    <input type="text" name="email" id="email" class="form__input">
+                                    <input type="text" name="email" id="email" class="form__input" required>
                                 </div>
                 
                                 <div class="form__group">
                                     <label for="password" class="form__label">Password <span class="form__asterisk">*</span></label>
-                                    <input type="password" name="password" id="password" class="form__input">
+                                    <input type="password" name="password" id="password" class="form__input" required>
                                 </div>
         
-                                <input type="submit" class="form__button btn btn__primary" value="Sign in">
-        
+                                <input type="submit" class="form__button btn" value="Sign in">
+
                             </form>
         
                             <div class="signup__info signup__info--md">
