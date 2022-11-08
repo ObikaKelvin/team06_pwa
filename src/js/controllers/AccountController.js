@@ -332,7 +332,7 @@ class AccountController {
             return;
         }
 
-        window.location.href = "./";
+        window.location.href = "./home.html";
     }
 
     isLoggedIn = () => {
