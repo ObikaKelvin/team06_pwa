@@ -8,7 +8,7 @@ module.exports = {
     ],
     output: {
         publicPath: '/public/',
-        path: path.resolve(__dirname, 'public'),
+        path: path.resolve(__dirname, 'public/'),
         filename: 'js/index.min.js',
     },
     devServer: {

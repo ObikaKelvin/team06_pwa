@@ -16,12 +16,17 @@
 
 @import 'components/form';
 @import 'components/btn';
+@import 'components/card';
 
 
 // /// imports reusable grid layout
 @import 'layout/grid';
+
 // /// imports reusable header layout
 @import 'layout/header';
+@import 'layout/nav';
+@import 'layout/footer';
 
 
 @import 'pages/signup';
+@import 'pages/index';
