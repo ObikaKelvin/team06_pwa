@@ -7,16 +7,21 @@ import {
 } from "firebase/auth";
 import { getFirestore, doc, setDoc, addDoc } from "firebase/firestore";
 
-import User from './models/User';
-import { firebaseConfig } from './config';
+import User from '../models/User';
+import { firebaseConfig } from '../data/config';
 
 const app = firebase.initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 
-class Account {
+class AccountController {
 
     errors = [];
+
+    init = () => {
+        this.setupEventListeners();
+        this.isLoggedIn();
+    }
 
     setupEventListeners = () => {
 
@@ -296,7 +301,7 @@ class Account {
                 return;
             }
 
-            window.location.href = "/";
+            window.location.href = "./success.html";
         }
 
     }
@@ -327,13 +332,42 @@ class Account {
             return;
         }
 
-        window.location.href = "/";
+        window.location.href = "./home.html";
     }
+
+    isLoggedIn = () => {
+        const token = localStorage.getItem("access_token");
+
+        const loginWindow = document.getElementById("login");
+        const signupWindow = document.getElementById("signup");
+        const indexWindow = document.getElementById("index");
+
+        if(token) {
+            
+            if(loginWindow || signupWindow || indexWindow) {
+                console.log("home");
+                window.location.href = "./home.html";
+            }
+
+            return;
+        }
+        
+        else {
+            
+            if(loginWindow || signupWindow || indexWindow) {
+                return;
+            }
+
+            window.location.href = "./";
+        }
+    }
+    
+    logOut = () => {
+        localStorage.removeItem("access_token");
+        window.location.href = "./";
+    }
+    
 
 }
 
-
-// const account = new Account();
-// account.setupEventListeners();
-
-export default Account;
+export default AccountController;

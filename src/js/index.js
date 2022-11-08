@@ -1,4 +1,7 @@
-import Account from './login';
+import './services/worker';
 
-const account = new Account();
-account.setupEventListeners();
+import AccountController from './controllers/AccountController';
+
+const account = new AccountController();
+
+account.init();
