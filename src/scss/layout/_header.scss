@@ -1,6 +1,7 @@
 .header {
 
     margin-bottom: 5.4rem;
+    
     @include respond(lg) {
         margin-bottom: 10rem;
     }

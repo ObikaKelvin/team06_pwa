@@ -16,112 +16,125 @@
     
     <div class="container">
         <div class="row">
-            <nav class="nav">
-                <div class="nav__left">
-                    <a href="/">
-                        <img class="nav__list--back" src="./assets/icons/orange-back.svg" alt="citizen logo">
-                    </a>
-                </div>
-
-                <div class="nav__middle" style="display: none;">
-                    <!-- <img class="nav__list--back" src="./assets/icons/Add-report-btn.svg" alt="citizen logo"> -->
-                    <img class="nav__list--add" src="./assets/images/Add-report-btn.png" alt="add report">
-                </div>
-
-                <div class="nav__right">
-                    <div class="nav__unauthenticated">
-                        <ul class="nav__list">
-                            <li class="nav__list--item">
-                                <a href="#about" class="nav__list--link">About</a>
-                            </li>
-            
-                            <li class="nav__list--item">
-                                <a href="#how-it-works" class="nav__list--link">How it works</a>
-                            </li>
-            
-                            <li class="nav__list--item">
-                                <a href="./login.html" class="nav__list--link">Sign in</a>
-                            </li>
-                        </ul>
-
-                        <a href="./signup.html" class="btn btn__nav btn__nav--1">Create your account</a>
-
-                        <img class="nav__burger" src="./assets/icons/hamburger-menu.svg" alt="menu">
-
+            <div class="col-12">
+                <nav class="nav">
+                    <div class="nav__left">
+                        <a href="/">
+                            <img class="nav__list--back" src="./assets/icons/orange-back.svg" alt="citizen logo">
+                        </a>
                     </div>
 
-                    <div class="nav__authenticated" style="display: none;">
-                        <ul class="nav__list">
-
-                            <li class="nav__list--item">
-                                <a href="#" class="btn btn__nav btn__nav--2">Report a problem</a>
-                            </li>
-
-                            <li class="nav__list--item">
-                                <img class="nav__list--icon" src="./assets/icons/notification.svg" alt="citizen logo">
-                                <div class="badge"></div>
-                            </li>
-
-                            <li class="nav__list--item">
-                                <div class="nav__profile">
-                                    <img class="nav__profile--img" src="./assets/images/profile.png" alt="profile picture">
-                                </div>
-                            </li>
-
-                        </ul>
+                    <div class="nav__middle" style="display: none;">
+                        <!-- <img class="nav__list--back" src="./assets/icons/Add-report-btn.svg" alt="citizen logo"> -->
+                        <img class="nav__list--add" src="./assets/images/Add-report-btn.png" alt="add report">
                     </div>
-                </div>
 
-            </nav>
+                    <div class="nav__right">
+                        <div class="nav__unauthenticated">
+                            <ul class="nav__list">
+                                <li class="nav__list--item">
+                                    <a href="#about" class="nav__list--link">About</a>
+                                </li>
+                
+                                <li class="nav__list--item">
+                                    <a href="#how-it-works" class="nav__list--link">How it works</a>
+                                </li>
+                
+                                <li class="nav__list--item">
+                                    <a href="./login.html" class="nav__list--link">Sign in</a>
+                                </li>
+                            </ul>
+
+                            <a href="./signup.html" class="btn btn__nav btn__nav--1">Create your account</a>
+
+                            <img class="nav__burger" src="./assets/icons/hamburger-menu.svg" alt="menu">
+
+                        </div>
+
+                        <div class="nav__authenticated" style="display: none;">
+                            <ul class="nav__list">
+
+                                <li class="nav__list--item">
+                                    <a href="#" class="btn btn__nav btn__nav--2">Report a problem</a>
+                                </li>
+
+                                <li class="nav__list--item">
+                                    <img class="nav__list--icon" src="./assets/icons/notification.svg" alt="citizen logo">
+                                    <div class="badge"></div>
+                                </li>
+
+                                <li class="nav__list--item">
+                                    <div class="nav__profile">
+                                        <img class="nav__profile--img" src="./assets/images/profile.png" alt="profile picture">
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                </nav>
+            </div>
         </div>
     </div>
         
     <header class="header">
         <div class="container">
-            <div class="header__main">
-                <div class="header__title">
-                    <h1 class="heading index__h1">Unlock the power of community</h1>
-                </div>
-    
-                <div class="card__header">
-                    <div class="card__offset">
-                        <div class="card__offset--front">
-                            <img class="card__offset--img" src="./assets/images/pexels-thirdman-7656743 1.jpg" alt="">
+            <div class="row">
+                <div class="col-12">
+                    <div class="header__main">
+                        <div class="header__title">
+                            <h1 class="heading index__h1">Unlock the power of community</h1>
                         </div>
-        
-                        <div class="card__offset--back"></div>
+            
+                        <div class="card__header">
+                            <div class="card__offset">
+                                <div class="card__offset--front">
+                                    <img class="card__offset--img" src="./assets/images/pexels-thirdman-7656743 1.jpg" alt="">
+                                </div>
+                
+                                <div class="card__offset--back"></div>
+                            </div>
+                        </div>
+            
+                        <div class="header__subtitle">
+                            <p class="header__text header__text--sm">The Citizen App empowers you to act fast and report problems in their neighbourhoods and cities so you improve the quality of life of your communtiy</p>
+                            <p class="header__text header__text--sm">We believe in the radical power of transformation of communities. Come together right now!</p>
+                        </div>
+            
+                        <div class="header__cta">
+                            <a href="./signup.html" class="btn header__cta--btn">Create your account</a>
+                            <a href="./login.html" class="header__cta--link">Sign in</a>
+                        </div>
                     </div>
                 </div>
-    
-                <div class="header__subtitle">
-                    <p class="header__text header__text--sm">The Citizen App empowers you to act fast and report problems in their neighbourhoods and cities so you improve the quality of life of your communtiy</p>
-                    <p class="header__text header__text--sm">We believe in the radical power of transformation of communities. Come together right now!</p>
-                </div>
-    
-                <div class="header__cta">
-                    <a href="./signup.html" class="btn header__cta--btn">Create your account</a>
-                    <a href="./login.html" class="header__cta--link">Sign in</a>
-                </div>
-            </div>
-            
+        </div>
         </div>
     </header>
 
     <!--- Main Content Starts Here -->
     <section id="about" class="index__about">
         <div class="container">
-            <h2 class="heading index__h2">About the App</h2>
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="heading index__h2">About the App</h2>
 
-            <p class="header__text header__text--lg">Imagine you are walking around your neighbourhood when you see a bunch of garbage pilling up the street. What do you do? Just seat at the curbside and cry? Go back to home and pretend the problem is not there? Or hope or pray to anyone else do something about it?</p>
-            <p class="header__text header__text--lg">Citizen App is here to help you to connect with the authorities and city administrators to take actions to solve the problem. You can also connect with your neighbours to support each other and track the status of the reports.</p>
+                    <p class="header__text header__text--lg">Imagine you are walking around your neighbourhood when you see a bunch of garbage pilling up the street. What do you do? Just seat at the curbside and cry? Go back to home and pretend the problem is not there? Or hope or pray to anyone else do something about it?</p>
+                    <p class="header__text header__text--lg">Citizen App is here to help you to connect with the authorities and city administrators to take actions to solve the problem. You can also connect with your neighbours to support each other and track the status of the reports.</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <section id="how-it-works">
         <div class="container">
-            <h2 class="heading index__h2">How it works?</h2>
-            <p class="header__text header__text--lg">In just a few steps, you can report any type of issue in your neighbourhood: from garbage collection to streetlights issues. The Citizen App helps you take care of your neighbourhood and bulding a stronger and healthier community.</p>
-            <p class="header__text heading index__sub">See how the app works:</p>
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="heading index__h2">How it works?</h2>
+                    <p class="header__text header__text--lg">In just a few steps, you can report any type of issue in your neighbourhood: from garbage collection to streetlights issues. The Citizen App helps you take care of your neighbourhood and bulding a stronger and healthier community.</p>
+                    <p class="header__text heading index__sub">See how the app works:</p>
+                </div>
+            </div>
 
             <div class="index__example">
                 <div class="row-xl row-xl-reverse">
