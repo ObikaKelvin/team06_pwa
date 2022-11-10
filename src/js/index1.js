@@ -1,6 +1,6 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js'
 import { documentId, getFirestore, collection, addDoc, getDocs, getDoc, doc, setDoc, query, where } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js'
-import { Report } from '/js/classes.js';
+import { Report } from '/src/js/models/Report.js';
 // import { createRequire } from '/module'; // 
 // const require = createRequire(import.meta.url);
 // const geofire = require('geofire-common');
@@ -23,6 +23,66 @@ const db = getFirestore(app);
 //get collection 
 function getCollection(name) {
   return collection(db, name);
+}
+/*--------Get Category Id-------------*/
+export async function getCategory(collectionName,key,value)
+{ let categoryId=null;
+  try{
+    let documents=getCollection(collectionName);
+    documents = query(documents, where(key, "==", value));
+    let collection=await getDocs(documents);
+     collection.forEach((doc) => {
+      categoryId=doc.id;
+     });
+     return categoryId;
+  }
+  catch(e){
+    console.log('error in getting category id: '+e);
+    return categoryId;
+  }    
+}
+
+/*----------Add New Reports----------*/
+//add new report
+export async function addNewReport(newReport) {
+  try {
+    console.log('in addNewReports')
+    const docRef = await addDoc(collection(db, "reports"), {
+      title: newReport.getTitle,
+      address: newReport.getAddress,
+      createdAt: newReport.getCreatedAt,
+      description:newReport.getDescription,
+      images:"",
+      latitude:"",
+      longitude:"",
+      postedBy:"",
+      status: newReport.getStatus,
+      updatedAt:"",
+      upvotes:""
+    });
+    console.log('docRef: '+docRef.id);
+    return docRef;
+  } catch (e) {
+    console.log(e)
+    return null;
+  }
+}
+//add new report_category
+export async function addNewReportCategory(newReportCategory) {
+  try {
+    console.log('in addNewReports')
+    const docRef = await addDoc(collection(db, "report_category"), {
+      category: newReportCategory.getCategoryId,
+      createdAt: newReportCategory.getCreatedAt,
+      report:newReportCategory.getReportId,
+      updatedAt:"",
+    });
+    console.log('docRef: '+docRef.id);
+    return docRef;
+  } catch (e) {
+    console.log(e)
+    return null;
+  }
 }
 
 /*---------- Add users-------------- */
@@ -55,6 +115,7 @@ export async function getCategories(collectionName,key,value) {
    collection.forEach((doc) => {
     collectionIdMap.set(doc.id,doc.data().name)
    });
+   console.log('call getReports Ids')
    let reports = await getReportsIds(collectionIdMap,filter)
       return reports;
 }
@@ -62,6 +123,7 @@ export async function getCategories(collectionName,key,value) {
 //get report id
 async function getReportsIds(collectionIdMap,filter)
 {
+  console.log('in getReportsIds')
   let documents = null;
   documents=getCollection('report_category');
   let reportFilter=false;
@@ -71,9 +133,11 @@ async function getReportsIds(collectionIdMap,filter)
     let Key=[]
     for(let key of collectionIdMap.keys()){
       Key.push(key);
+      console.log("category Key: "+key)
     }
     documents= query(documents, where('category', 'in', Key));
   }
+  console.log('move towards getReports')
   let collection=await getDocs(documents);
   let reportIdMap=new Map(); 
   collection.forEach((doc) => {
@@ -105,7 +169,7 @@ async function getReports(reportIdMap,reportFilter)
     console.log('category:'+ reportIdMap.get(doc.id))
     let report = new Report(doc.data().address, doc.data().createdAt, doc.data().description, doc.data().images,
     doc.data().postedBy, doc.data().status, doc.data().title, doc.data().updatedAt,
-    doc.data().upvotes, doc.data().geohash);
+    doc.data().upvotes, doc.data().geohash,reportIdMap.get(doc.id));
     reportIdMap.set(doc.id,report)
     console.log('after saving object'+reportIdMap.get(doc.id).address)
   }

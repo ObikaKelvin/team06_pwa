@@ -1,16 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/index.css">
     <link href='https://fonts.googleapis.com/css?family=Space Grotesk' rel='stylesheet'>
+    <script type="module" src="/src/js/home.js" defer></script>
     <title>Home</title>
+
+    <link rel='stylesheet' type='text/css' href='https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/maps/maps.css'>
+    <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/maps/maps-web.min.js"></script>
+    <script>(function(){ window.SS = window.SS || {}; SS.Require = function (callback){ if (typeof callback === 'function') { if (window.SS && SS.EventTrack) { callback(); } else { var siteSpect = document.getElementById('siteSpectLibraries'); var head = document.getElementsByTagName('head')[0]; if (siteSpect === null && typeof head !== 'undefined') { siteSpect = document.createElement('script'); siteSpect.type = 'text/javascript'; siteSpect.src = '/__ssobj/core.js+ssdomvar.js+generic-adapter.js';siteSpect.async = true; siteSpect.id = 'siteSpectLibraries'; head.appendChild(siteSpect); } if (window.addEventListener){ siteSpect.addEventListener('load', callback, false); } else { siteSpect.attachEvent('onload', callback, false); } } } };})(); 
+    </script>
+    
+
+
 </head>
 <body>
 
-  
+    <script>
+        var map = tt.map({
+            key: "<your maps api key>",
+            container: "map"
+        });
+   </script>
+
+   
     <div class="container">
         <div class="logo">
             <a href="#back"><img src="./assets/logo.svg" alt=""></a>
@@ -43,11 +59,11 @@
     </div>
 
     <div class="left">
-        <span class="filterIcon"><a class="active" href="">All</a></span>
-        <span class="filterIcon"><a href="">Garbage</a></span>
-        <span class="filterIcon"><a href="">Streetlight</a></span>
-        <span class="filterIcon"><a href="">Parks</a></span>
-        <span class="filterIcon"><a href="">Playground</a></span>
+        <span class="filterIcon"><a href="#" class="active" id="all">All</a></span>
+        <span class="filterIcon"><a href="#" id="garbage">Garbage</a></span>
+        <span class="filterIcon"><a href="#" id="streetlight">Streetlight</a></span>
+        <span class="filterIcon"><a href="#" id="park">Parks</a></span>
+        <span class="filterIcon"><a href="#" id="playground">Playground</a></span>
     </div>
    
     <div class="right">
@@ -59,7 +75,7 @@
 <!--- Main Content Starts Here -->
 <div class="container">
     <div class="row">
-        <div class="cards">
+        <div class="cards" id="cards">
             <!-- Card Starts Here -->
            <div class="card">
                 <img class="cardImg" src="./assets/sample.jpg" alt="img1">

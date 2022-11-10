@@ -1,4 +1,4 @@
-class Report{
+export class Report{
     constructor(address, createdAt, description, images, postedBy, status, title, updatedAt, upvotes,geohash,category){
         this.address = address;
         this.createdAt =createdAt;
@@ -15,4 +15,3 @@ class Report{
 
 }
 
-export default Report;
