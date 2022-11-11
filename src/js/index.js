@@ -1,7 +1,10 @@
 import './services/worker';
 
 import AccountController from './controllers/AccountController';
+import ReportController from './controllers/ReportController';
 
-const account = new AccountController();
+const accountController = new AccountController();
+const reportController = new ReportController();
 
-account.init();
+accountController.init();
+reportController.init();

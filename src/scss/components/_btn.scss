@@ -55,8 +55,8 @@
 
             @include respond(xl) {
                 height: 5rem;
-                max-width: 20rem;
-                font-size: 1.6rem !important;
+                width: 20rem;
+                font-size: 1.4rem !important;
             }
         }
 

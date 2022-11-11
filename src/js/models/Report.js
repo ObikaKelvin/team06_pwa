@@ -1,16 +1,18 @@
 class Report{
-    constructor(address, createdAt, description, images, postedBy, status, title, updatedAt, upvotes,geohash,category){
-        this.address = address;
-        this.createdAt =createdAt;
-        this.description = description;
-        this.images = images;
-        this.postedBy = postedBy;
-        this.status = status;
+    constructor(title, description, address, locationDetails="", category, postedBy, latitude, longitude){
         this.title = title;
-        this.updatedAt = updatedAt;
-        this.upvotes = upvotes;
-        this.geohash=geohash;
-        this.category=category;
+        this.address = address;
+        this.description = description;
+        this.locationDetails = locationDetails;
+        this.images = [];
+        this.category = category;
+        this.postedBy = postedBy;
+        this.status = "in review";
+        this.createdAt = new Date(Date.now());
+        this.updatedAt = new Date(Date.now());
+        this.upvotes = 0;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
 }
