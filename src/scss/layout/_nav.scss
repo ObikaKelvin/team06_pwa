@@ -44,12 +44,12 @@
         text-decoration: none;
         list-style: none;
         height: 100%;
-        display: none;
         align-items: center;
         flex: 1;
         margin-right: 2rem;
         width: 100%;
         justify-content: end;
+        display: flex;
 
         @include respond(xl) {
             display: flex;

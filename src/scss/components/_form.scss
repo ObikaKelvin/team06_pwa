@@ -1,5 +1,18 @@
 .form {
 
+    &__signup {
+        margin-bottom: 3.9em;
+
+        @include respond(xl) {
+            margin-bottom: 6.4rem;
+        }
+    }
+
+    &__report {
+        max-width: 56.3rem;
+        margin: 0 auto;
+    }
+
     &__group {
         display: flex;
         flex-direction: column;
@@ -41,6 +54,11 @@
         color: map-get( $colors, primary );
     }
 
+    &__caption {
+        font-size: 1.6rem;
+        margin-bottom: 1.6rem;
+    }
+
     &__input {
         border: 0.1em solid map-get( $colors, successDark );
         font-size: 1.6em;
@@ -80,14 +98,6 @@
             transform: translate(-50%, -50%);
         }
 
-    }
-
-    &__signup {
-        margin-bottom: 3.9em;
-
-        @include respond(xl) {
-            margin-bottom: 6.4rem;
-        }
     }
 
     &__footer {

@@ -1,17 +1,14 @@
-import firebase from 'firebase/compat/app';
 import {
     getAuth,
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
-    signInWithCustomToken
+    onAuthStateChanged
 } from "firebase/auth";
-import { getFirestore, doc, setDoc, addDoc } from "firebase/firestore";
+import { doc, setDoc, addDoc } from "firebase/firestore";
+
+import { app, db } from '../services/firebase';
 
 import User from '../models/User';
-import { firebaseConfig } from '../data/config';
-
-const app = firebase.initializeApp(firebaseConfig);
-const db = getFirestore(app);
 
 
 class AccountController {
@@ -54,10 +51,11 @@ class AccountController {
                 }
                 this.controlDisplayErrors(this.errors);
             });
+
+            document.querySelector('.form__signup').addEventListener('submit', this.onSignupSubmit);
         }
 
         document.querySelector('.form__login')?.addEventListener('submit', this.onLoginSubmit);
-        document.querySelector('.form__signup')?.addEventListener('submit', this.onSignupSubmit);
 
     }
 
@@ -366,7 +364,15 @@ class AccountController {
         localStorage.removeItem("access_token");
         window.location.href = "./";
     }
-    
+
+    onGetCurrentUser = () => {
+        const auth = getAuth();
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                document
+            } 
+        });
+    }
 
 }
 
