@@ -49,7 +49,7 @@
         margin-right: 2rem;
         width: 100%;
         justify-content: end;
-        display: flex;
+        display: none;
 
         @include respond(xl) {
             display: flex;
