@@ -1,4 +1,4 @@
-import { getCategories } from '/src/js/index1.js'
+import { getCategories } from './index1.js'
 
 const nearest = document.getElementById("nearest");
 nearest.addEventListener('click', () => {
