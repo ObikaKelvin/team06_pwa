@@ -173,17 +173,15 @@ function getUserLocation() {
         let imageLink=`./assets/images/${image}`;
         console.log("============>", report.latitude);
         
-        let output=`<div class="card">
-        <img class="cardImg" src=${imageLink} alt="img1">
-        <div class="cardDetail">
-            <h3>${report.title}</h3>
-            <span class="location"><h4>${report.address}</h4></span>
-            <span class="time"><h4>${new Date(report.createdAt.seconds*1000).toLocaleString()}</h4></span>
-            <div class="tags">
-                <span class="filterIcon activeIcon clear"><a href="">${report.category}</a></span>                
-            </div>
-        </div>
-    </div>`;
+        let output = `<div class="mapCard">
+          <img src=${imageLink} alt="Avatar" style="width:100%">
+          <div class="mapCardContainer">
+            <h4><b>${report.title}</b></h4> 
+            <p class="location">${report.address}</p> 
+            <p class="time">${new Date(report.createdAt.seconds*1000).toLocaleString()}</p> 
+            <span class="filterIcon activeIcon clear"><a href="">${report.category}</a></span>                
+          </div>
+          </div>`
         createMarker('accident.colors-white.svg', [parseFloat(report.longitude), parseFloat(report.latitude)], '#5327c3', 'SVG icon', map, output);
     }
 }
