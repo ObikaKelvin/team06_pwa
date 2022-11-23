@@ -1,6 +1,9 @@
 import { getCategories } from './index1.js'
 var selectedCategoryID = 'all';
 
+window.addEventListener("online", () => console.log("online"))
+window.addEventListener("offline", () => console.log("offline"))
+
 var mapViewReports = [];
 // get all the data
 async function getAllReports()
