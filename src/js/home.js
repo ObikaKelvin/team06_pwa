@@ -1,14 +1,9 @@
-import { getCategories } from './index1.js';
+import { getCategories } from './index1.js'
+import{  getUserLocation} from './nearest.js'
 export var reportDetails = [];
 
-if(typeof status ===undefined)
-{
-    var status=0;
-}
-
-
-
-
+//show nearest report
+getUserLocation()
 
 // get all the data
 async function getAllReports()
@@ -16,7 +11,7 @@ async function getAllReports()
     let reportArray=await getCategories('categories');
     showReports(reportArray);
  }
- getAllReports();
+//  getAllReports();
 
 // get reports
 const categories=document.querySelectorAll('.filterIcon a')
@@ -37,6 +32,37 @@ async function getReports(id){
     showReports(reportArray);
    
 }
+
+
+
+
+// get all the data
+// async function getAllReports()
+//  {
+//     let reportArray=await getCategories('categories');
+//     showReports(reportArray);
+//  }
+//  getAllReports();
+
+// // get reports
+// const categories = document.querySelectorAll('.filterIcon a')
+// console.log('categories:'+categories)
+// categories.forEach((e)=>{
+//     console.log('e:'+e.id)
+//     e.addEventListener('click',async ()=>{
+//         console.log("id clicked:"+e.id)
+//        await getReports(e.id);
+//     })
+// })
+
+/*async function getReports(id){
+    console.log('id: '+id)
+    // get reports form firebase
+    let reportArray=(id==='all')?await getCategories('categories'):await getCategories('categories','name',id);
+    // get element to show result
+    showReports(reportArray);
+   
+}*/
 let ReportsArr = [];
 // show all reports
 function showReports(reportArrays)
@@ -47,13 +73,7 @@ function showReports(reportArrays)
  
 
     // Getting Keys of Reports and storing it to Array
-    let keys = [];
-    for(let key of reportArrays.keys())
-    {
-        keys.push(key);
-        //console.log(`===***=== Category ID: = ${key}`);
-  
-    }
+    
 
 
     // retreive reports
@@ -134,7 +154,6 @@ function showReports(reportArrays)
 let mapView=document.getElementById('mapView')
 let searchDiv=document.getElementById('search')
 let mapDiv=document.getElementById('map')
-
 mapView.addEventListener('click',()=>{
   
 console.log('map View clicked')
