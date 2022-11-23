@@ -54,7 +54,7 @@ reportImgContainer.innerHTML = output2;
 
 //Report Description and Other Details goes here
 output = `<div class="detailheading">${data.title}</div>
-<div class="detailtext">{data.description}</div>`;
+<div class="detailtext">${data.description}</div>`;
 reportDescContainer.innerHTML = output;
 
 
