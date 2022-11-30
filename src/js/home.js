@@ -89,7 +89,7 @@ function showReports(reportArrays)
      }
  
      // show output
-     
+let reportDetails = []
         container.innerHTML=output;
         let allReportsDiv = document.querySelectorAll('.card');
         console.log(`All Reports Div: ${allReportsDiv}`);
