@@ -96,8 +96,6 @@ console.log("Map Called");
        
        
 console.log(`Map Data ${center}`);
-localStorage.removeItem('Report');
-
 
 /*let mapView=document.getElementById('mapView')
 let searchDiv=document.getElementById('search1')

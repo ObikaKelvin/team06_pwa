@@ -5,6 +5,12 @@ export var reportDetails = [];
 //show nearest report
 getUserLocation()
 
+var selectedCategoryID = 'all';
+
+window.addEventListener("online", () => console.log("online"))
+window.addEventListener("offline", () => console.log("offline"))
+
+var mapViewReports = [];
 // get all the data
 async function getAllReports()
  {
@@ -29,8 +35,14 @@ async function getReports(id){
     // get reports form firebase
     let reportArray=(id==='all')?await getCategories('categories'):await getCategories('categories','name',id);
     // get element to show result
-    showReports(reportArray);
-   
+    if(mapDiv.style.display==='none'){
+        showReports(reportArray);
+    }else{
+        mapViewReports = reportArray;
+        AmagiLoader.show();
+        showLoader()
+        getUserLocation1();
+    }
 }
 
 
@@ -69,13 +81,8 @@ function showReports(reportArrays)
 {
     const container=document.getElementById('cards')
     let output='';
+    let ReportsArr = [];
     let count=0;
- 
-
-    // Getting Keys of Reports and storing it to Array
-    
-
-
     // retreive reports
      for(let report of reportArrays.values()){ 
          
@@ -100,37 +107,12 @@ function showReports(reportArrays)
             </div>`;
             count++;
 
-        // With using below for loop we are taking out ID from the array and assigning to DIV id of Card
-        /*for (let i=0; i<keys.length; i++)
-         {
-            console.log('report.category:'+report.category) 
-            console.log('report image:'+report.images.toLowerCase())
-            let image=report.images.toLowerCase();
-           //  let imageUrl=`./assets/images/${report.category}.jpg`;
-            let imageUrl=`./assets/images/${image}`;
-           
-            //output+=`<div class="card" onClick="Transfer('${keys[i]}')" id="${keys[i]}">
-                output+=`<div class="card" id=${count}>
-                <img class="cardImg" src=${imageUrl} alt="img1">
-                <div class="cardDetail">
-                    <h3>${report.title}</h3>
-                    <span class="location"><h4>${report.address}</h4></span>
-                    <span class="time"><h4>${new Date(report.createdAt.seconds*1000).toLocaleString()}</h4></span>
-                    <div class="tags">
-                    <span class="filterIcon activeIcon clear"><a href="">${report.category}</a></span>                
-                    </div>
-                </div>
-            </div>`;
-            count++;
-         }*/
+        
          
      }
  
      // show output
-     
-     
- 
-       
+let reportDetails = []
         container.innerHTML=output;
         let allReportsDiv = document.querySelectorAll('.card');
         console.log(`All Reports Div: ${allReportsDiv}`);
@@ -163,12 +145,61 @@ console.log('map View clicked')
         searchDiv.innerHTML=''
         const container=document.getElementById('cards')
         container.innerHTML=''
-        searchDiv.style.display='inline'
-        mapDiv.style.display='inline'
+        pagination.style.display = 'none';
+        mapView.innerHTML = 'List View'
+    }else{
+        mapView.innerHTML = 'Map View'
+        searchDiv.style.display='none'
+        mapDiv.style.display='none'
+    }
+}
+
+function showLoader(){
+    setTimeout(() => {
+        AmagiLoader.hide();
+     }, 5000);
+}
+
+mapView.addEventListener('click',()=>{
+    console.log(mapDiv.style.display);
+    console.log('map View clicked')
+    if(mapDiv.style.display==='none')
+    {
+        console.log('inside if');
+        hideOrShowElements(true);
+        toggleCategories('all');
+        AmagiLoader.show();
+        showLoader()
+        getUserLocation1();
     }
     else{
         searchDiv.style.display='none'
         mapDiv.style.display='none'
+        getAllReports();
+    }
+})
+
+// map view marker implementation
+
+function getUserLocation1() {
+    console.log('inside geo')
+    try {
+      if ('geolocation' in navigator) {
+        navigator.geolocation.getCurrentPosition((position) => {
+          console.log(`check the points`)
+          console.log(position.coords.longitude.toString())
+          let lat = position.coords.latitude;
+          let lng = position.coords.longitude;
+          showMap(parseFloat(lng), parseFloat(lat));
+          console.log(`coordinates: ${lat}, ${lng}`)
+        })
+      }
+      else {
+        console.error('No geolation Found')
+      }
+    }
+    catch (e) {
+      console.error("error in getting user current location: " + e);
     }
 
 let center=[-123,49]
