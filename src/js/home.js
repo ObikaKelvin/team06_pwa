@@ -4,6 +4,11 @@ var selectedCategoryID = 'all';
 window.addEventListener("online", () => console.log("online"))
 window.addEventListener("offline", () => console.log("offline"))
 
+var selectedCategoryID = 'all';
+
+window.addEventListener("online", () => console.log("online"))
+window.addEventListener("offline", () => console.log("offline"))
+
 var mapViewReports = [];
 // get all the data
 async function getAllReports()
@@ -37,7 +42,7 @@ async function getReports(id){
         mapViewReports = reportArray;
         AmagiLoader.show();
         showLoader()
-        getUserLocation();
+        getUserLocation1();
     }
 }
 
@@ -53,30 +58,54 @@ function showReports(reportArrays)
 {
     const container=document.getElementById('cards')
     let output='';
- 
+    let ReportsArr = [];
+    let count=0;
     // retreive reports
      for(let report of reportArrays.values()){ 
-         console.log('report.category:'+report.category) 
-         console.log('report image:'+report.images.toLowerCase())
-         let image=report.images.toLowerCase();
-        //  let imageUrl=`./assets/images/${report.category}.jpg`;
-         let imageUrl=`./assets/images/${image}`;
- 
-         output+=`<div class="card">
-         <img class="cardImg" src=${imageUrl} alt="img1">
-         <div class="cardDetail">
-             <h3>${report.title}</h3>
-             <span class="location"><h4>${report.address}</h4></span>
-             <span class="time"><h4>${new Date(report.createdAt.seconds*1000).toLocaleString()}</h4></span>
-             <div class="tags">
-                 <span class="filterIcon activeIcon clear"><a href="">${report.category}</a></span>                
-             </div>
-         </div>
-     </div>`;
+         
+        ReportsArr.push(report);
+
+            //console.log('report.category:'+report.category) 
+            //console.log('report image:'+report.images.toLowerCase())
+            let image = report.images.toLowerCase();
+           //  let imageUrl=`./assets/images/${report.category}.jpg`;
+            let imageUrl=`./assets/images/${image}`;
+            //output+=`<div class="card" onClick="Transfer('${keys[i]}')" id="${keys[i]}">
+            output+=`<div class="card" id=${count}>
+                <img class="cardImg" src=${imageUrl} alt="img1">
+                <div class="cardDetail">
+                    <h3>${report.title}</h3>
+                    <span class="location"><h4>${report.address}</h4></span>
+                    <span class="time"><h4>${new Date(report.createdAt.seconds*1000).toLocaleString()}</h4></span>
+                    <div class="tags">
+                    <span class="filterIcon activeIcon clear"><a href="">${report.category}</a></span>                
+                    </div>
+                </div>
+            </div>`;
+            count++;
+
+        
+         
      }
  
      // show output
-     container.innerHTML=output;
+     
+        container.innerHTML=output;
+        let allReportsDiv = document.querySelectorAll('.card');
+        console.log(`All Reports Div: ${allReportsDiv}`);
+        allReportsDiv.forEach((div)=>{
+        div.addEventListener('click',()=>{
+             //console.log(div.id);
+             reportDetails.push(ReportsArr[div.id]);
+             //console.log(ReportsArr[div.id]);
+             localStorage.setItem("Report", JSON.stringify(ReportsArr[div.id]));
+             window.location.href = "reportdetail.html";
+             
+             
+            })
+        })
+   
+     
 }
 
 //DOM elements
@@ -119,7 +148,7 @@ mapView.addEventListener('click',()=>{
         toggleCategories('all');
         AmagiLoader.show();
         showLoader()
-        getUserLocation();
+        getUserLocation1();
     }
     else{
         AmagiLoader.show();
@@ -135,7 +164,7 @@ mapView.addEventListener('click',()=>{
 
 // map view marker implementation
 
-function getUserLocation() {
+function getUserLocation1() {
     console.log('inside geo')
     try {
       if ('geolocation' in navigator) {

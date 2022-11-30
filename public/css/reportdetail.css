@@ -26,6 +26,9 @@
 
 .tags {
     margin: -15px 0 0 0;
+    display: inline-block;
+    margin: 10px 0 0 0;
+    clear: none;
 }
 
 .status {
@@ -46,6 +49,8 @@
     display: flex;
     float: right;
     border: 1px solid #424B5A;
+    border-radius: 10px;
+    overflow: hidden;
 }
 .filterIcon {
     margin: 0 10px 0 0;
@@ -108,13 +113,14 @@
    
     min-height: 50px;
     /* background-color: lightblue; */
-   
+      
     margin-right: 20px;
 }
 .moreReportSection {
     width: 30%;
     min-height: 50px;
     /* background-color: lightgray; */
+    overflow: hidden;
     
 }
 .moreReportSection .button {
@@ -148,8 +154,10 @@
     margin: 0 2px 0 0;
 }
 .reportContainer .icons {
-    margin: 0;
+   
     float: right;
+    margin: 20px 0 0 0;
+  
 }
 .reportContainer .icons a span {
     margin: 0px 5px 0 3px;
