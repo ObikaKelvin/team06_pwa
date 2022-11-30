@@ -5,6 +5,7 @@ import { getStorage, ref, uploadBytes, uploadString } from "firebase/storage";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 import Report from "../models/Report";
+import  "../services/location";
 
 const options = {
     searchOptions: {
@@ -171,7 +172,7 @@ class ReportController {
                     const updatedDateFormat = `
                         ${new Intl.DateTimeFormat('en', { month: "short"}).format(updatedDate)} 
                         ${updatedDate.getDay()}, ${updatedDate.getFullYear()} | 
-                        ${updatedDate.getHours()}:${updatedDate.getMinutes()}am
+                        ${updatedDate.getHours()}:${updatedDate.getMinutes()}pm
                     `;
 
                     reportTitle.textContent = report.title;

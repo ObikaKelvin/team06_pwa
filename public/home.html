@@ -23,6 +23,7 @@
     </script>
     <script src="https://cdn.jsdelivr.net/gh/AmagiTech/JSLoader/amagiloader.js"></script>
     <script type="module" src="../src/js/nearest.js" defer></script> 
+    <script src="./js/index.min.js" defer></script> 
 
 </head>
 <style>
@@ -89,26 +90,28 @@
 
 <!--- Main Content Starts Here -->
 
-<div class="container">
-    <div class="row">
-        <div id="map"></div>
-        <div class="cards" id="cards">    
+<div class="main">  
+    <div class="container">
+        <div class="row">
+            <div id="map"></div>
+            <div class="cards" id="cards">    
+            </div>
+            <!-- Pagination starts here -->
+            <div class="pagination" id="pagination">
+                <ul>
+                    <li><a href=""> &lt; </a></li>
+                    <li><a href="">1</a></li>
+                    <li><a href="" class="active">2</a></li>
+                    <li><a href="">3</a></li>
+                    <li><a href="">4</a></li>
+                    <li><a href="">...</a></li>
+                    <li><a href=""> &gt; </a></li>
+                </ul>
+            </div>
+            <!-- Pagination ends here-->
         </div>
-        <!-- Pagination starts here -->
-        <div class="pagination" id="pagination">
-            <ul>
-                <li><a href=""> &lt; </a></li>
-                <li><a href="">1</a></li>
-                <li><a href="" class="active">2</a></li>
-                <li><a href="">3</a></li>
-                <li><a href="">4</a></li>
-                <li><a href="">...</a></li>
-                <li><a href=""> &gt; </a></li>
-            </ul>
-        </div>
-        <!-- Pagination ends here-->
+     
     </div>
- 
 </div>
 <!-- Main Content Ends Here -->
 
