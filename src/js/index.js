@@ -1,4 +1,4 @@
-import '../../public/worker';
+import './services/worker';
 
 import AccountController from './controllers/AccountController';
 import ReportController from './controllers/ReportController';
