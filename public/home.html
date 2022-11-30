@@ -5,10 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/index.css">
-    <link rel="manifest" href="manifest.json">
     <link href='https://fonts.googleapis.com/css?family=Space Grotesk' rel='stylesheet'>
     <script type="module" src="../src/js/home.js" defer></script>
-    <script type="module" src="./worker.js" defer></script>
     <title>Home</title>
 
     <link rel='stylesheet' type='text/css' href='https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.21.3/maps/maps.css'>
@@ -27,17 +25,14 @@
     
 </head>
 <style>
+    #map {
+        width: 100px;
+        height: 100px;
+        display: none;
+    }
     #search {
         width: 300px;
         height: 300px;
-        display: none;
-    }
-    #map {
-        padding-top: 2rem;
-        background-color: black;
-        width: 100%;
-        height: 100vh;
-        position: relative;
         display: none;
     }
 
@@ -63,9 +58,10 @@
 
 <div class="container">
     <div class="main-heading-grp">
-        <div class="welcome-header">
+        <div class="welcome-header" >
         <h1 class="mainHead">Hi, Julia!</h1>
-        <h3>There's <a href="#">4 new issues</a> reported in your neighbourhood</h3>
+        <div id="nearestCount"></div>
+        <!-- <h3>There's <a href="#">4 new issues</a> reported in your neighbourhood</h3> -->
         </div>
     </div>
 
@@ -74,7 +70,7 @@
         <span class="filterText"><a href="">Latest</a></span>
     </div>
 
-    <div class="left" id="report-filters" style="padding-bottom: 1rem;">
+    <div class="left">
         <span class="filterIcon"><a href="#" class="active" id="all">All</a></span>
         <span class="filterIcon"><a href="#" id="garbage">Garbage</a></span>
         <span class="filterIcon"><a href="#" id="streetlight">Streetlight</a></span>
@@ -83,20 +79,22 @@
     </div>
    
     <div class="right">
-        <span class="changeViewIcon"><a id="mapView" href="#">Map View</a></span>
+        <span class="filterIcon"><a id="mapView" href="#">Map View</a></span>
+       
                 <div id="search"></div>
+                <div id="map"></div>
+     
     </div>
 </div>
 
 <!--- Main Content Starts Here -->
-
 <div class="container">
     <div class="row">
-        <div id="map"></div>
-        <div class="cards" id="cards">    
+        <div class="cards" id="cards">
+                  
         </div>
         <!-- Pagination starts here -->
-        <div class="pagination" id="pagination">
+        <div class="pagination">
             <ul>
                 <li><a href=""> &lt; </a></li>
                 <li><a href="">1</a></li>
@@ -109,7 +107,6 @@
         </div>
         <!-- Pagination ends here-->
     </div>
- 
 </div>
 <!-- Main Content Ends Here -->
 

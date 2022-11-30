@@ -1,21 +1,12 @@
 {
-    "name": "The Citizen",
-    "short_name": "The Citizen",
+    "name": "The Byte",
+    "short_name": "The Byte",
     "start_url": "index.html",
     "display": "standalone",
     "background_color": "#fdfdfd",
     "theme_color": "#db4938",
     "orientation": "portrait-primary",
     "icons": [
-        {
-            "src": "assets/icons/app_icon_192x192.png",
-            "sizes": "192x192",
-            "type": "image/png"
-        },
-        {
-            "src": "assets/icons/app_icon_512x512.png",
-            "sizes": "512x512",
-            "type": "image/png"
-        }
+      
     ]
   }
