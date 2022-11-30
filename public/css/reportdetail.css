@@ -97,7 +97,7 @@
 
 .reportdesc .map {
     min-height: 745px;
-    background-color: silver;
+    /* background-color: silver; */
     margin: 10px 0 0 0;
     color: white;
     text-align: center;
@@ -140,7 +140,7 @@
 }
 .reportContainer .reportImg{
     margin: 0 0 15px 0;
-    min-height: 271px;
+    max-height: 271px;
     border: 1px solid #424B5A;
     min-width: 100%;
 }

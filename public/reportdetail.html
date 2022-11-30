@@ -11,9 +11,43 @@
     <link rel="stylesheet" href="./css/app.min.css">
     <link rel="stylesheet" href="./css/reportdetail.css">
     <link rel="stylesheet" href="./css/index.css">
+
+    <!-- <script>
+        console.log("=============== Data from Local storage");
+        console.log(JSON.parse(localStorage.getItem("Report")));
+        let data = JSON.parse(localStorage.getItem("Report"));
+        console.log(`============ address:${data.address}`);
+        
+    </script> -->
     <script src="./js/index.min.js" defer></script>
+    <script type="module" src="../src/js/reportdetail.js" defer></script>
+    <script type="module" src="../src/js/home.js" defer></script>
+    
+    <link rel='stylesheet' type='text/css' href='https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.21.3/maps/maps.css'>
+    <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.21.3/maps/maps-web.min.js"></script>
+    <link rel='stylesheet' type='text/css'
+    href='https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.3-public-preview.0/SearchBox.css' />
+<script
+    src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.1.2-public-preview.15/services/services-web.min.js"></script>
+<script
+    src="https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.3-public-preview.0/SearchBox-web.js"></script>
+    <script>(function(){ window.SS = window.SS || {}; SS.Require = function (callback){ if (typeof callback === 'function') { if (window.SS && SS.EventTrack) { callback(); } else { var siteSpect = document.getElementById('siteSpectLibraries'); var head = document.getElementsByTagName('head')[0]; if (siteSpect === null && typeof head !== 'undefined') { siteSpect = document.createElement('script'); siteSpect.type = 'text/javascript'; siteSpect.src = '/__ssobj/core.js+ssdomvar.js+generic-adapter.js';siteSpect.async = true; siteSpect.id = 'siteSpectLibraries'; head.appendChild(siteSpect); } if (window.addEventListener){ siteSpect.addEventListener('load', callback, false); } else { siteSpect.attachEvent('onload', callback, false); } } } };})(); 
+    
+    
+    </script>
+   
+  
     <title>Citizen - my reports</title>
+  
 </head>
+<style>
+    #map1 {
+        width: 100%;
+        height: 300px;
+        display: block;
+       
+    }
+    </style>
 <body>
 
     <div class="container">
@@ -83,8 +117,8 @@
     <div class="container">
         <div class="row">
             <div class="col-6">
-                <div class="reportdetail">
-                    <h1 class="reportdetail__h1">Poor maintenance of playground</h1>
+                 <div class="reportdetail" id="report">
+                <!--    <h1 class="reportdetail__h1">Poor maintenance of playground</h1>
                     <div class="reportinfo">
                         <h3 class="reportdetail__h3">Sep 17, 2022 | 8.30 am</h3>
                         <h3 class="reportdetail__h3">posted by Ana B.</h3>
@@ -97,6 +131,8 @@
                             <span class="filterIcon report clear"><a href="">Bench</a></span>
                             <span class="filterIcon report clear"><a href="">Garbage</a></span>
                         </div>
+
+
                         <div class="icons">
                             <a href="#">
                                 <img  src="./assets/icons/comment-icon.svg" alt="comment icon"> <span>22</span>
@@ -107,12 +143,14 @@
                             <a href="#">
                                 <img  src="./assets/icons/share-icon.svg" alt="share icon"> <span>22</span>
                             </a>
-                        </div>
+                        </div> -->
                         
-                </div>
-                <div class="reportdetail__img">
-                    <img  src="#" width="434px" height="376px">
-                </div>
+                    </div>
+
+                <div class="reportdetail__img" id="reportImage" >
+                    
+                     <!-- <img  src="assets/sample.jpg" width="434px" height="376px"> -->
+                </div> 
             </div>
            
         </div>
@@ -120,26 +158,31 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <div class="reportdesc">
-                    <div class="detailheading">Description</div>
-                    <div class="detailtext">Aliquam vitae turpis odio. Nam suscipit nec felis eget maximus. Duis egestas tortor ut mauris fringilla, ut aliquam nisi gravida. Cras aliquet feugiat ante, et malesuada neque tristique non. Nulla facilisi. Donec volutpat nisl nec justo cursus, ut sollicitudin odio interdum.</div>
+                <div class="reportdesc" id="reportDesc">
+                    <!-- <div class="detailheading">Description</div>
+                    <div class="detailtext">Aliquam vitae turpis odio. Nam suscipit nec felis eget maximus. Duis egestas tortor ut mauris fringilla, ut aliquam nisi gravida. Cras aliquet feugiat ante, et malesuada neque tristique non. Nulla facilisi. Donec volutpat nisl nec justo cursus, ut sollicitudin odio interdum.</div> -->
                     <span><a href="">Read More ^</a></span>
                 </div>
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-12">
-                <div class="reportdesc">
-                    <div class="detailheading">Location</div>
-                    <div class="detailtext">280 7th East - Vancouver - BC V5T 0B4</div>
-                    <div class="map">Space for map</div>
+        <div class="row" >
+            <div class="col-12" >
+                <div class="reportdesc" id="reportLocation" >
+                    <!-- <div class="detailheading">Location</div>
+                    <div class="detailtext">280 7th East - Vancouver - BC V5T 0B4</div> -->
+                    
+                    <!-- <div class="mapContainer" id="viewmap" style="border:20px solid rgb(60, 7, 250);">   
+                        <div id="search1"></div>
+                        <div id="map1"></div>
+                    </div> -->
                     
                 </div>
             </div>
         </div>
     </div>
 
+    
     <div class="container">
         <div class="more">
                 <!-- Comment Section Starts here -->
@@ -203,7 +246,7 @@
                     <h3>See reports related to this issue</h3>
 
                     <div class="reportContainer">
-                        <img src="#" class="reportImg">
+                        <img src="assets/sample.jpg" class="reportImg">
                         <h1>Poor maintainance of playground</h1>
                         
                         <div class="moreReportinfo">
@@ -231,7 +274,7 @@
                     </div>
 
                     <div class="reportContainer">
-                        <img src="#" class="reportImg">
+                        <img src="assets/sample.jpg" class="reportImg">
                         <h1>Poor maintainance of playground</h1>
                         
                         <div class="moreReportinfo">
