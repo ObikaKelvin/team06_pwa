@@ -1,9 +1,8 @@
 .reportdetail {
     display: flex;
     flex-direction: column;
-    width: 60%;
-    float: left;
     color:#505D68;
+    margin-right: 30px;
 }
 .reportdetail__h1 {
     font-size: 5.6rem;
@@ -51,12 +50,14 @@
 }
 
 .reportDetails {
-    
+    display: flex;
 }
 
 .reportdetail__img {
     display: flex;
-    border: 1px solid #424B5A;
+}
+.reportdetail__img > img{
+    width: 100%;
 }
 .filterIcon {
     margin: 0 10px 0 0;

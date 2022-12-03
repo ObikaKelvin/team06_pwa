@@ -165,7 +165,7 @@ class ReportController {
                     const createdDateFormat = `
                         ${new Intl.DateTimeFormat('en', { month: "short"}).format(createdDate)} 
                         ${createdDate.getDay()}, ${createdDate.getFullYear()} | 
-                        ${createdDate.getHours()}:${createdDate.getMinutes()}am
+                        ${createdDate.getHours()}:${createdDate.getMinutes()}pm
                     `;
 
                     const updatedDate = new Date(report.updatedAt?.toDate());

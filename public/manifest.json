@@ -3,17 +3,17 @@
     "short_name": "The Citizen",
     "start_url": "index.html",
     "display": "standalone",
-    "background_color": "#fdfdfd",
-    "theme_color": "#db4938",
+    "background_color": "#ffffff",
+    "theme_color": "#FF8362",
     "orientation": "portrait-primary",
     "icons": [
         {
-            "src": "assets/icons/app_icon_192x192.png",
+            "src": "assets/icons/logo-192px.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "assets/icons/app_icon_512x512.png",
+            "src": "assets/icons/logo-512px.png",
             "sizes": "512x512",
             "type": "image/png"
         }
