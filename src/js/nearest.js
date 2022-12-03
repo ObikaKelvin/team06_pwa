@@ -1,14 +1,12 @@
 import { getCategories } from './index1.js'
 
 const nearest = document.getElementById("nearest");
-nearest.addEventListener('click', () => {
-  getUserLocation();
-})
+getUserLocation1();
 
 
 
 //get user current location
-export function getUserLocation() {
+export function getUserLocation1() {
   try {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -43,9 +41,7 @@ async function getReports(position) {
   for (let report of categories.values()) {
     console.log('lat '+report.latitude.toFixed(1).toString())
     console.log('lat '+report.longitude.toFixed(1).toString())
-    
-    if (position.coords.latitude.toFixed(1).toString()===report.latitude.toFixed(1).toString() &&
-      position.coords.longitude.toFixed(1).toString() === report.longitude.toFixed(1).toString()) {
+   
         count++;
         let image=report.images.toLowerCase();
         //  let imageUrl=`./assets/images/${report.category}.jpg`;
@@ -62,7 +58,7 @@ async function getReports(position) {
         </div>
         </div>`;
         welcomeHeader.innerHTML=`<h3>There's <a href="#" >${count} new issues</a> reported in your neighbourhood</h3>`
-      }
+      
   }
   // show output
   container.innerHTML = output;

@@ -15,6 +15,7 @@ async function getAllReports()
  {
     let reportArray=await getCategories('categories');
     mapViewReports = reportArray;
+    console.log(reportArray)
     showReports(reportArray);
  }
  getAllReports();
@@ -53,15 +54,49 @@ function toggleCategories(id){
     selectedCategoryID = id;
 }
 
+
+function timeSince(date) {
+
+    var seconds = Math.floor((new Date() - date) / 1000);
+  
+    var interval = seconds / 31536000;
+  
+    if (interval > 1) {
+      return Math.floor(interval) + " years";
+    }
+    interval = seconds / 2592000;
+    if (interval > 1) {
+      return Math.floor(interval) + " months";
+    }
+    interval = seconds / 86400;
+    if (interval > 1) {
+      return Math.floor(interval) + " days";
+    }
+    interval = seconds / 3600;
+    if (interval > 1) {
+      return Math.floor(interval) + " hours";
+    }
+    interval = seconds / 60;
+    if (interval > 1) {
+      return Math.floor(interval) + " minutes";
+    }
+    return Math.floor(seconds) + " seconds";
+}
+//   var aDay = 24*60*60*1000;
+//   console.log(timeSince(new Date(Date.now()-aDay)));
+//   console.log(timeSince(new Date(Date.now()-aDay*2)));
+
 // show all reports
 function showReports(reportArrays)
 {
-    const container=document.getElementById('cards')
+    const container=document.getElementById('cards');
     let output='';
     let ReportsArr = [];
     let count=0;
     // retreive reports
      for(let report of reportArrays.values()){ 
+        const timePast = timeSince(new Date(report.createdAt.seconds*1000))
+        console.log(timePast)
          
         ReportsArr.push(report);
 
@@ -71,14 +106,29 @@ function showReports(reportArrays)
            //  let imageUrl=`./assets/images/${report.category}.jpg`;
             let imageUrl=`./assets/images/${image}`;
             //output+=`<div class="card" onClick="Transfer('${keys[i]}')" id="${keys[i]}">
-            output+=`<div class="card" id=${count}>
-                <img class="cardImg" src=${imageUrl} alt="img1">
-                <div class="cardDetail">
-                    <h3>${report.title}</h3>
-                    <span class="location"><h4>${report.address}</h4></span>
-                    <span class="time"><h4>${new Date(report.createdAt.seconds*1000).toLocaleString()}</h4></span>
-                    <div class="tags">
-                    <span class="filterIcon activeIcon clear"><a href="">${report.category}</a></span>                
+            output+=`
+            <div class="col-4" id=${count}>
+                <div class="card" id=${count}>
+                    <img class="cardImg" src=${imageUrl} alt="${report.title}">
+                    <div class="cardDetail">
+                        <h3>${report.title}</h3>
+                        <p class="location">${report.address}</p>
+                        <p class="time">${timePast} ago</p>
+                        <div class="tags">
+                            <span class="filterIcon activeIcon clear"><a href="">${report.category}</a></span>
+                            
+                            <div class="commentsUpvote">                                
+                                <div class="commentsUpvote-item" id="comment">
+                                    <img class="commentsUpvote-icon" src="./assets/icons/commentIc.svg" alt="">
+                                    <p class="commentsUpvote-text">${report.comments}</p>
+                                </div>
+                                
+                                <div class="commentsUpvote-item" id="upvote">
+                                    <img class="commentsUpvote-icon" src="./assets/icons/upvote.svg" alt="">
+                                    <p class="commentsUpvote-text">${report.upvotes}</p>
+                                </div>
+                            </div>    
+                        </div>
                     </div>
                 </div>
             </div>`;
@@ -126,7 +176,7 @@ function hideOrShowElements(hide){
         pagination.style.display = 'none';
         mapView.innerHTML = 'List View'
     }else{
-        mapView.innerHTML = 'Map View'
+        mapView.innerHTML = '<img class="mapView-icon" src="./assets/icons/map-icon.svg" alt="map icon" >Map View'
         searchDiv.style.display='none'
         mapDiv.style.display='none'
     }

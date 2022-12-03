@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "complie:sass": "node-sass src/scss/app.scss public/css/app.min.css --w",
+    "compile:sass": "node-sass src/scss/app.scss public/css/app.min.css --w",
     "build": "webpack --config webpack.config.js --mode=production",
     "watch:webpack": "webpack --config webpack.config.js --mode=production --watch"
   },

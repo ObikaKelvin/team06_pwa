@@ -8,9 +8,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/app.min.css">
     <link rel="stylesheet" href="./css/reportdetail.css">
     <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/app.min.css">
 
     <!-- <script>
         console.log("=============== Data from Local storage");
@@ -51,105 +51,77 @@
 <body>
 
     <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <nav class="nav">
-                    <div class="nav__left">
-                        <a href="./">
-                            <img class="nav__list--back" src="./assets/icons/orange-back.svg" alt="citizen logo">
-                        </a>
-                    </div>
-
-                    <div class="nav__middle" style="display: none;">
-                        <!-- <img class="nav__list--back" src="./assets/icons/Add-report-btn.svg" alt="citizen logo"> -->
-                        <img class="nav__list--add" src="./assets/images/Add-report-btn.png" alt="add report">
-                    </div>
-
-                    <div class="nav__right">
-                        <div class="nav__unauthenticated"  style="display: none;">
-                            <ul class="nav__list">
-                                <li class="nav__list--item">
-                                    <a href="#about" class="nav__list--link">About</a>
-                                </li>
-                
-                                <li class="nav__list--item">
-                                    <a href="#how-it-works" class="nav__list--link">How it works</a>
-                                </li>
-                
-                                <li class="nav__list--item">
-                                    <a href="./login.html" class="nav__list--link">Sign in</a>
-                                </li>
-                            </ul>
-
-                            <a href="./signup.html" class="btn btn__nav btn__nav--1">Create your account</a>
-
-                            <img class="nav__burger" src="./assets/icons/hamburger-menu.svg" alt="menu">
-
-                        </div>
-
-                        <div class="nav__authenticated">
-                            <ul class="nav__list">
-
-                                <li class="nav__list--item">
-                                    <a href="./create-report.html" class="btn btn__nav btn__nav--2">Report a problem</a>
-                                </li>
-
-                                <li class="nav__list--item">
-                                    <img class="nav__list--icon" src="./assets/icons/notification.svg" alt="citizen logo">
-                                    <div class="badge"></div>
-                                </li>
-
-                                <li class="nav__list--item">
-                                    <div class="nav__profile">
-                                        <img class="nav__profile--img" src="./assets/images/profile.png" alt="profile picture">
-                                    </div>
-                                </li>
-
-                            </ul>
-                        </div>
-                    </div>
-
-                </nav>
+        <nav class="nav">
+            <div class="nav__left">
+                <a href="./home.html">
+                    <img class="nav__list--back" src="./assets/icons/logo-citizen-v02.svg" alt="citizen logo">
+                </a>
             </div>
-        </div>
+
+            <div class="nav__middle" style="display: none;">
+                <!-- <img class="nav__list--back" src="./assets/icons/Add-report-btn.svg" alt="citizen logo"> -->
+                <img class="nav__list--add" src="./assets/images/Add-report-btn.png" alt="add report">
+            </div>
+
+            <div class="nav__right">
+                <div class="nav__unauthenticated"  style="display: none;">
+                    <ul class="nav__list">
+                        <li class="nav__list--item">
+                            <a href="#about" class="nav__list--link">About</a>
+                        </li>
+        
+                        <li class="nav__list--item">
+                            <a href="#how-it-works" class="nav__list--link">How it works</a>
+                        </li>
+        
+                        <li class="nav__list--item">
+                            <a href="./login.html" class="nav__list--link">Sign in</a>
+                        </li>
+                    </ul>
+
+                    <a href="./signup.html" class="btn btn__nav btn__nav--1">Create your account</a>
+
+                    <img class="nav__burger" src="./assets/icons/hamburger-menu.svg" alt="menu">
+
+                </div>
+
+                <div class="nav__authenticated">
+                    <ul class="nav__list">
+
+                        <li class="nav__list--item">
+                            <a href="./create-report.html" class="btn btn__nav btn__nav--2">Report a problem</a>
+                        </li>
+
+                        <li class="nav__list--item">
+                            <img class="nav__list--icon" src="./assets/icons/notification.svg" alt="citizen logo">
+                            <div class="badge"></div>
+                        </li>
+
+                        <li class="nav__list--item">
+                            <div class="nav__profile">
+                                <img class="nav__profile--img" src="./assets/images/profile.png" alt="profile picture">
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+        </nav>
     </div>
     
     <div class="container">
         <div class="row">
             <div class="col-6">
-                 <div class="reportdetail" id="report">
-                <!--    <h1 class="reportdetail__h1">Poor maintenance of playground</h1>
-                    <div class="reportinfo">
-                        <h3 class="reportdetail__h3">Sep 17, 2022 | 8.30 am</h3>
-                        <h3 class="reportdetail__h3">posted by Ana B.</h3>
-                        <div class="status"><a href="#">In review</a></div>
-                          
+                <div class="reportDetails">
+                    <div class="reportdetail" id="report">
+                                        
                     </div>
-
-                        <div class="tags">
-                            <span class="filterIcon report activeIcon clear"><a href="">Park</a></span>
-                            <span class="filterIcon report clear"><a href="">Bench</a></span>
-                            <span class="filterIcon report clear"><a href="">Garbage</a></span>
-                        </div>
-
-
-                        <div class="icons">
-                            <a href="#">
-                                <img  src="./assets/icons/comment-icon.svg" alt="comment icon"> <span>22</span>
-                            </a>
-                            <a href="#">
-                                <img  src="./assets/icons/upvote-icon.svg" alt="upvote icon"> <span>22</span>
-                            </a>
-                            <a href="#">
-                                <img  src="./assets/icons/share-icon.svg" alt="share icon"> <span>22</span>
-                            </a>
-                        </div> -->
+    
+                    <div class="reportdetail__img" id="reportImage" >
                         
+                         <!-- <img  src="assets/sample.jpg" width="434px" height="376px"> -->
                     </div>
-
-                <div class="reportdetail__img" id="reportImage" >
-                    
-                     <!-- <img  src="assets/sample.jpg" width="434px" height="376px"> -->
                 </div> 
             </div>
            
@@ -194,7 +166,11 @@
                             <h2>lan W.</h2> <span>16h</span>
                             <p>Donec volutpat nisl nec justo cursus, ut sollicitudin odio interdum. Aliquam vitae turpis odio. Nam suscipit nec felis eget maximus. Duis egestas tortor ut mauris fringilla, ut aliquam nisi gravida. </p>
 
-                            <div class="commentstats"><span>Upvote (2)</span><span>Share (112)</span><span>Reply</span></div>
+                            <div class="commentstats">
+                                <span>Upvote (2)</span>
+                                <span>Share (112)</span>
+                                <span>Reply</span>
+                            </div>
                         </div>
                     </div>
 
@@ -246,20 +222,17 @@
                     <h3>See reports related to this issue</h3>
 
                     <div class="reportContainer">
-                        <img src="assets/sample.jpg" class="reportImg">
-                        <h1>Poor maintainance of playground</h1>
+                        <img src="./assets/images/brokenstreetlight.jpeg" class="reportImg">
+                        <h1>Broken Streetlight</h1>
                         
-                        <div class="moreReportinfo">
+                        <div class="moreReportinfo" style="margin-bottom: 40px">
                             <h3 class="reportdetail__h3">Sep 17, 2022 | 8.30 am</h3>
                             <h3 class="reportdetail__h3">posted by Ana B.</h3>
                             <div class="status"><a href="#">In review</a></div>
-                              
                         </div>
     
                         <div class="tags">
-                            <span class="filterIcon report clear"><a href="">Park</a></span>
-                            <span class="filterIcon report clear"><a href="">Bench</a></span>
-                            <span class="filterIcon report clear"><a href="">Garbage</a></span>
+                            <span class="filterIcon report clear"><a href="">Streetlight</a></span>
                         </div>
 
                         <div class="icons">
@@ -274,28 +247,26 @@
                     </div>
 
                     <div class="reportContainer">
-                        <img src="assets/sample.jpg" class="reportImg">
-                        <h1>Poor maintainance of playground</h1>
+                        <img src="./assets/images/brokenglasses.jpg" class="reportImg">
+                        <h1>Broken Glasses On Road</h1>
                         
-                        <div class="moreReportinfo">
+                        <div class="moreReportinfo" style="margin-bottom: 40px">
                             <h3 class="reportdetail__h3">Sep 17, 2022 | 8.30 am</h3>
                             <h3 class="reportdetail__h3">posted by Ana B.</h3>
                             <div class="status"><a href="#">In review</a></div>
                               
                         </div>
     
-                        <div class="tags">
+                        <div class="reportdetail__tags">
                             <span class="filterIcon report clear"><a href="">Park</a></span>
-                            <span class="filterIcon report clear"><a href="">Bench</a></span>
-                            <span class="filterIcon report clear"><a href="">Garbage</a></span>
                         </div>
 
                         <div class="icons">
                             <a href="#">
-                                <img  src="./assets/icons/comment-icon.svg" alt="comment icon"> <span>22</span>
+                                <img  src="./assets/icons/comment-icon.svg" alt="comment icon"> <span>12</span>
                             </a>
                             <a href="#">
-                                <img  src="./assets/icons/upvote-icon.svg" alt="upvote icon"> <span>22</span>
+                                <img  src="./assets/icons/upvote-icon.svg" alt="upvote icon"> <span>8</span>
                             </a>
                            
                         </div>

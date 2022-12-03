@@ -1,5 +1,86 @@
 
 
+const comments = [
+    {
+        author: "lan W.",
+        text: 'Donec volutpat nisl nec justo cursus, ut sollicitudin odio interdum. Aliquam vitae turpis odio. Nam suscipit nec felis eget maximus. Duis egestas tortor ut mauris fringilla, ut aliquam nisi gravida.',
+        upvotes: 2,
+        shares: 3
+    },
+    {
+        author: "lan W.",
+        text: 'Donec volutpat nisl nec justo cursus, ut sollicitudin odio interdum. Aliquam vitae turpis odio. Nam suscipit nec felis eget maximus. Duis egestas tortor ut mauris fringilla, ut aliquam nisi gravida.',
+        upvotes: 2,
+        shares: 3
+    },
+    {
+        author: "lan W.",
+        text: 'Donec volutpat nisl nec justo cursus, ut sollicitudin odio interdum. Aliquam vitae turpis odio. Nam suscipit nec felis eget maximus. Duis egestas tortor ut mauris fringilla, ut aliquam nisi gravida.',
+        upvotes: 2,
+        shares: 3
+    },
+    {
+        author: "lan W.",
+        text: 'Donec volutpat nisl nec justo cursus, ut sollicitudin odio interdum. Aliquam vitae turpis odio. Nam suscipit nec felis eget maximus. Duis egestas tortor ut mauris fringilla, ut aliquam nisi gravida.',
+        upvotes: 2,
+        shares: 3
+    },
+    {
+        author: "lan W.",
+        text: 'Donec volutpat nisl nec justo cursus, ut sollicitudin odio interdum. Aliquam vitae turpis odio. Nam suscipit nec felis eget maximus. Duis egestas tortor ut mauris fringilla, ut aliquam nisi gravida.',
+        upvotes: 2,
+        shares: 3
+    },
+
+  ];
+
+  window.addEventListener('load', () => {
+    const commentSection = document.querySelector('.commentSection');
+
+    if(commentSection) {
+        // commentSection.innerHTML = '';
+        console.log(true)
+        comments.forEach(comment => {
+            const commentContainer = document.createElement('div');
+            const commentDiv = document.createElement('div');
+
+            commentContainer.classList.add('commentContainer');
+            commentDiv.classList.add('comment');
+            
+            const commentAuthor = document.createElement('h2');
+            const commentText = document.createElement('p');
+            const commentstats = document.createElement('div');
+            const commentUpvote = document.createElement('span');
+            const commentShare = document.createElement('span');
+            const commentReply = document.createElement('span');
+            
+            commentAuthor.textContent = `${comment.author}`;
+            commentText.textContent = `${comment.text}`;
+            commentUpvote.textContent = `Upvotes(${comment.upvotes})`;
+            commentShare.textContent = `${comment.shares}`;
+            commentReply.textContent = `0`;
+
+            commentstats.append(...[
+                commentUpvote,
+                commentShare,
+                commentReply
+            ])
+
+
+            commentDiv.append(...[
+                commentAuthor,
+                commentText,
+                commentstats
+            ]);
+            commentContainer.appendChild(commentDiv);
+            // commentSection.appendChild(commentContainer)
+
+        })
+    }
+
+    console.log('finished')
+  })
+
 
 console.log("=============== Data from Local storage");
 console.log(JSON.parse(localStorage.getItem("Report")));
@@ -17,14 +98,14 @@ const reportLocContainer = document.getElementById('reportLocation');
 output+= `<h1 class="reportdetail__h1">${data.title}</h1>
 <div class="reportinfo">
     <h3 class="reportdetail__h3">${new Date(data.createdAt.seconds*1000).toLocaleString()}</h3>
-    <h3 class="reportdetail__h3">Posted by:${data.postedBy}</h3>
-    <div class="status"><a href="#">${data.status}</a></div>
+    <h3 class="reportdetail__h3">Posted by: Mahima Muhki</h3>
+    <div class="reportdetail__status">
+        <p class="table__status table__status--review">${data.status}</p>
+    </div>
 </div>`;
 
-output += `<div class="tags">
-<span class="filterIcon report clear"><a href="">Park</a></span>
-<span class="filterIcon report clear"><a href="">Bench</a></span>
-<span class="filterIcon report clear"><a href="">Garbage</a></span>
+output += `<div class="reportdetail__tags">
+<span class="filterIcon report clear"><a href="">${data.category}</a></span>
 </div>`;
 
 output += `<div class="icons">
@@ -126,7 +207,7 @@ console.log('map View clicked')
 var options = {
            searchOptions: {
                key: 'rggmSeIJsaufKzjETZpfOaQ54IGyXY4U',
-               language: 'en-GB',
+               `lan`guage: 'en-GB',
                limit: 5
            },
            autocompleteOptions: {
@@ -219,3 +300,5 @@ async function getReportsForMapView(long,lat) {
     // show output
     container.innerHTML = output;
   }*/
+
+

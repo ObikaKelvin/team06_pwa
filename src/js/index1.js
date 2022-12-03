@@ -60,7 +60,8 @@ export async function addNewReport(newReport) {
       postedBy: "",
       status: newReport.getStatus,
       updatedAt: "",
-      upvotes: ""
+      upvotes: "",
+      comments: ""
     });
     console.log('docRef: ' + docRef.id);
     return docRef;
@@ -167,7 +168,7 @@ async function getReports(reportIdMap, reportFilter) {
       console.log('category:' + reportIdMap.get(doc.id))
       let report = new NewReport(doc.data().address, doc.data().createdAt, doc.data().description, doc.data().images,
         doc.data().postedBy, doc.data().status, doc.data().title, doc.data().updatedAt,
-        doc.data().upvotes, doc.data().geohash, doc.data().latitude, doc.data().longitude, reportIdMap.get(doc.id));
+        doc.data().upvotes, doc.data().comments, doc.data().geohash, doc.data().latitude, doc.data().longitude, reportIdMap.get(doc.id));
       reportIdMap.set(doc.id, report)
       console.log('after saving object' + reportIdMap.get(doc.id).address)
     }

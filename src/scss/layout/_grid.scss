@@ -12,18 +12,18 @@
     padding: 0;
     margin: 0 auto;
     width: 100%;
-    max-width: 36.0em !important;
+    max-width: 36.0rem !important;
 
   @include respond(md){
-    max-width: 48.0em !important;
+    max-width: 48.0rem !important;
   }
 
   @include respond(lg){
-    max-width: 72em !important;
+    max-width: 100rem !important;
   }
 
   @include respond(xl){
-    max-width: 114.6em !important;
+    max-width: 114.6rem !important;
   }
 
   &-fluid {
@@ -39,9 +39,10 @@
     margin: 0 auto;
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
 
     [class^="col-"] {
-        padding: 0 $gutter-horizontal;
+        padding: $gutter-horizontal;
     }
 
     &-reverse{

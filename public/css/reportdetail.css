@@ -6,9 +6,10 @@
     color:#505D68;
 }
 .reportdetail__h1 {
-    font-size: 4.8rem;
+    font-size: 5.6rem;
     text-align: left;
-    margin-bottom: 5.6rem;
+    margin-bottom: 3.2rem;
+    color: #FF8362;
     
     width: 100%;
     float: left;
@@ -20,12 +21,18 @@
     width: 75%;
 }
 .reportdetail__h3 {
-    font-size: 1.3rem;
+    font-size: 1.6rem;
     width: 70%;
 }
 
-.tags {
+.reportdetail__status {
+    max-width: 120px;
+    margin: 40px 0;
+}
+
+.reportdetail__tags {
     margin: -15px 0 0 0;
+    display: flex;
 }
 
 .status {
@@ -42,18 +49,22 @@
     color:#FBFDFF;
     font-size:1.2rem;
 }
+
+.reportDetails {
+    
+}
+
 .reportdetail__img {
     display: flex;
-    float: right;
     border: 1px solid #424B5A;
 }
 .filterIcon {
     margin: 0 10px 0 0;
 }
 .filterIcon a {
-    background-color: #C7CFEC !important;
-    color:#263238 !important;
-    font-size: 1.5rem;
+    background-color: #1E798D !important;
+    color:#ffffff !important;
+    font-size: 1.4rem;
     
 }
 

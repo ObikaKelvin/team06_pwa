@@ -1,15 +1,10 @@
 .nav {
 
     display: flex;
-    margin-bottom: 5.6rem;
+    margin-bottom: 2rem;
     margin-top: 4rem;
     justify-content: center;
-    align-items: center;
-
-    @include respond(xl) {
-        margin-bottom: 8rem;
-        margin-top: 7.2rem;
-    }
+    align-items: center;    
 
     &__middle {
         flex: 1;

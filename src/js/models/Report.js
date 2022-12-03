@@ -1,5 +1,5 @@
 class Report{
-    constructor(title, description, address, locationDetails="", category, postedBy, latitude, longitude){
+    constructor(title, description, address, locationDetails="", category, comments, postedBy, latitude, longitude){
         this.title = title;
         this.address = address;
         this.description = description;
@@ -11,6 +11,7 @@ class Report{
         this.createdAt = new Date(Date.now());
         this.updatedAt = new Date(Date.now());
         this.upvotes = 0;
+        this.comments = 0;
         this.latitude = latitude;
         this.longitude = longitude;
     }
